@@ -1,0 +1,16 @@
+{
+    "files.autoSave": "onWindowChange",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E402",
+    ],
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "explorer.sortOrder": "type"
+}

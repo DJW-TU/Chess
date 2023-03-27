@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "handlers": {
+        "consoleHandler": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "consoleFormatter",
+            "stream": "ext://sys.stdout"
+        }
+    },
+    "formatters": {
+        "consoleFormatter": {
+            "format": "%(asctime)s | %(levelname)s | %(name)s: %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        }
+    },
+    "loggers": {
+        "": {
+            "level": "INFO",
+            "handlers": [
+                "consoleHandler"
+            ]
+        },
+        "api_functions": {
+            "level": "INFO",
+            "handlers": [
+                "consoleHandler"
+            ],
+            "propagate": false
+        },
+        "log_functions": {
+            "level": "INFO",
+            "handlers": [
+                "consoleHandler"
+            ],
+            "propagate": false
+        }
+    }
+}
