@@ -14,7 +14,7 @@ def main() -> None:
     if not LOADED:
         logger.info("Data has not been loaded yet")
         agadmator_videos = af.extract_info("UCL5YbN5WLFD8dLIegT5QAbA")
-        agadmator_videos.to_csv(DATA_PATH + "/agadmator_videos.csv", index=True)
+        agadmator_videos.to_csv(DATA_PATH + "/agadmator_videos.csv", sep="\t", index=False)
         os.environ["LOADED"] = "True"
         dotenv.set_key(dotenv_file, "LOADED", os.environ["Loaded"])
     else:
