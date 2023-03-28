@@ -12,7 +12,7 @@ youtube = build("youtube", "v3", developerKey=api_key)
 logger = lf.log_init(__name__)
 
 
-@lf.timeit
+@lf.timeit(__name__)
 def youtube_playlist_data(id: str):
     logger.info("-- Start Download --")
     token = None
@@ -44,7 +44,7 @@ def youtube_playlist_data(id: str):
     return video_data
 
 
-@lf.timeit
+@lf.timeit(__name__)
 def extract_info(playlist_id: str) -> dict:
     logger.info("-- Start Data Extraction --")
     # Here we pass the channel id of which the data needs to be retrieved

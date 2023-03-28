@@ -17,16 +17,18 @@ def log_init(sec):
     return logging.getLogger(sec)
 
 
-logger = log_init(__name__)
+def timeit(name):
+    logger = log_init(name)
 
+    def timeit_func(func: callable):
+        @wraps(func)
+        def wrap(*args, **kwargs):
+            start = timer()
+            result = func(*args, **kwargs)
+            end = timer()
+            logger.info(f"{func.__name__} took {round(end - start,5)} to execute")
+            return result
 
-def timeit(func: callable):
-    @wraps(func)
-    def wrap(*args, **kwargs):
-        start = timer()
-        result = func(*args, **kwargs)
-        end = timer()
-        logger.info(f"{func.__name__} took {round(end - start,5)} to execute")
-        return result
+        return wrap
 
-    return wrap
+    return timeit_func
